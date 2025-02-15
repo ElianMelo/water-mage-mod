@@ -20,19 +20,19 @@ namespace WaterMage.Survivors.WaterMage
         {
             string prefix = WaterMageSurvivor.WaterMage_PREFIX;
 
-            string desc = "WaterMage is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine
-             + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine
-             + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine
-             + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine
-             + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
+            string desc = "Water Mage is a powerful wizard who makes use of a wide arsenal of magic to supress his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine
+             + "< ! > Tidal blades is a good melee magic to defeat close enemies" + Environment.NewLine + Environment.NewLine
+             + "< ! > Water Barrage is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine
+             + "< ! > Glacial Dash has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine
+             + "< ! > Orb can be used to evaporate hole crowds." + Environment.NewLine + Environment.NewLine;
 
-            string outro = "..and so he left, searching for a new identity.";
-            string outroFailure = "..and so he vanished, forever a blank slate.";
+            string outro = "..and so she left, searching for a new powers.";
+            string outroFailure = "..and so she vanished, forever a blank slate.";
 
-            Language.Add(prefix + "NAME", "WaterMage");
+            Language.Add(prefix + "NAME", "Water Mage");
             Language.Add(prefix + "DESCRIPTION", desc);
-            Language.Add(prefix + "SUBTITLE", "The Chosen One");
-            Language.Add(prefix + "LORE", "sample lore");
+            Language.Add(prefix + "SUBTITLE", "The Powerful Wizard");
+            Language.Add(prefix + "LORE", "comes in search of everything");
             Language.Add(prefix + "OUTRO_FLAVOR", outro);
             Language.Add(prefix + "OUTRO_FAILURE", outroFailure);
 
