@@ -49,18 +49,24 @@ namespace WaterMage.Survivors.WaterMage
             Language.Add(prefix + "PRIMARY_SLASH_NAME", "Sword");
             Language.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Tokens.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * WaterMageStaticValues.swordDamageCoefficient}% damage</style>.");
 
-            Language.Add(prefix + "PRIMARY_SPLASH_NAME", "Sword");
-            Language.Add(prefix + "PRIMARY_SPLASH_DESCRIPTION", Tokens.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * WaterMageStaticValues.swordDamageCoefficient}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SPLASH_NAME", "Tidal Blades");
+            Language.Add(prefix + "PRIMARY_SPLASH_DESCRIPTION", Tokens.agilePrefix + $"Deliver a sweeping double slash of water from right to left. for <style=cIsDamage>{100f * WaterMageStaticValues.swordDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
             Language.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Tokens.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * WaterMageStaticValues.gunDamageCoefficient}% damage</style>.");
+
+            Language.Add(prefix + "SECONDARY_WATER_NAME", "Water Barrage");
+            Language.Add(prefix + "SECONDARY_WATER_DESCRIPTION", Tokens.agilePrefix + $"Unleash a rapid stream of water projectiles to overwhelm foes. for <style=cIsDamage>{100f * WaterMageStaticValues.gunDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Utility
             Language.Add(prefix + "UTILITY_ROLL_NAME", "Roll");
             Language.Add(prefix + "UTILITY_ROLL_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
+
+            Language.Add(prefix + "UTILITY_DASH_NAME", "Glacial Dash");
+            Language.Add(prefix + "UTILITY_DASH_DESCRIPTION", "Dash forward, leaving an ice pillar in your wake to damage enemies, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
             #endregion
 
             #region Special

@@ -29,7 +29,9 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
             attackRecoil = 0.5f;
             hitHopVelocity = 4f;
 
-            swingSoundString = "WaterMageSwordSwing";
+            // Util.PlaySound("Play_WaterMelee", gameObject);
+
+            swingSoundString = "Play_WaterMelee";
             hitSoundString = "";
             muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             playbackRateParam = "Slash.playbackRate";

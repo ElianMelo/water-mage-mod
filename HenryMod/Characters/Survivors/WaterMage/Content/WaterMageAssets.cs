@@ -42,7 +42,8 @@ namespace WaterMage.Survivors.WaterMage
 
             _assetBundle = assetBundle;
 
-            swordHitSoundEvent = Content.CreateAndAddNetworkSoundEventDef("WaterMageSwordHit");
+            // swordHitSoundEvent = Content.CreateAndAddNetworkSoundEventDef("WaterMageSwordHit");
+            swordHitSoundEvent = Content.CreateAndAddNetworkSoundEventDef("Play_WaterMelee");
 
             CreateEffects();
 
@@ -135,14 +136,16 @@ namespace WaterMage.Survivors.WaterMage
             //remove their ProjectileImpactExplosion component and start from default values
             UnityEngine.Object.Destroy(bombProjectilePrefab.GetComponent<ProjectileImpactExplosion>());
             ProjectileImpactExplosion bombImpactExplosion = bombProjectilePrefab.AddComponent<ProjectileImpactExplosion>();
-            
+
+            // Content.CreateAndAddNetworkSoundEventDef("WaterMageBombExplosion")
+
             bombImpactExplosion.blastRadius = 16f;
             bombImpactExplosion.blastDamageCoefficient = 1f;
             bombImpactExplosion.falloffModel = BlastAttack.FalloffModel.None;
             bombImpactExplosion.destroyOnEnemy = true;
             bombImpactExplosion.lifetime = 12f;
             bombImpactExplosion.impactEffect = bombExplosionEffect;
-            bombImpactExplosion.lifetimeExpiredSound = Content.CreateAndAddNetworkSoundEventDef("WaterMageBombExplosion");
+            bombImpactExplosion.lifetimeExpiredSound = Content.CreateAndAddNetworkSoundEventDef("Play_WaterSpecial");
             bombImpactExplosion.timerAfterImpact = true;
             bombImpactExplosion.lifetimeAfterImpact = 0.1f;
 
@@ -163,13 +166,15 @@ namespace WaterMage.Survivors.WaterMage
             UnityEngine.Object.Destroy(orbProjectilePrefab.GetComponent<ProjectileImpactExplosion>());
             ProjectileImpactExplosion orbImpactExplosion = orbProjectilePrefab.AddComponent<ProjectileImpactExplosion>();
 
+            // Content.CreateAndAddNetworkSoundEventDef("WaterMageBombExplosion")
+
             orbImpactExplosion.blastRadius = 16f;
             orbImpactExplosion.blastDamageCoefficient = 1f;
             orbImpactExplosion.falloffModel = BlastAttack.FalloffModel.None;
             orbImpactExplosion.destroyOnEnemy = true;
             orbImpactExplosion.lifetime = 12f;
             orbImpactExplosion.impactEffect = orbExplosionEffect;
-            orbImpactExplosion.lifetimeExpiredSound = Content.CreateAndAddNetworkSoundEventDef("WaterMageBombExplosion");
+            orbImpactExplosion.lifetimeExpiredSound = Content.CreateAndAddNetworkSoundEventDef("Play_WaterSpecial");
             orbImpactExplosion.timerAfterImpact = true;
             orbImpactExplosion.lifetimeAfterImpact = 0.1f;
 
@@ -190,17 +195,20 @@ namespace WaterMage.Survivors.WaterMage
             UnityEngine.Object.Destroy(waterProjectilePrefab.GetComponent<ProjectileImpactExplosion>());
             ProjectileImpactExplosion waterImpactExplosion = waterProjectilePrefab.AddComponent<ProjectileImpactExplosion>();
 
+            // Content.CreateAndAddNetworkSoundEventDef("WaterMageBombExplosion");
+
             waterImpactExplosion.blastRadius = 1f;
             waterImpactExplosion.blastDamageCoefficient = 1f;
             waterImpactExplosion.falloffModel = BlastAttack.FalloffModel.None;
             waterImpactExplosion.destroyOnEnemy = true;
             waterImpactExplosion.lifetime = 12f;
             waterImpactExplosion.impactEffect = waterExplosionEffect;
-            waterImpactExplosion.lifetimeExpiredSound = Content.CreateAndAddNetworkSoundEventDef("WaterMageBombExplosion");
+            waterImpactExplosion.lifetimeExpiredSound = Content.CreateAndAddNetworkSoundEventDef("Play_WaterSpecial");
             waterImpactExplosion.timerAfterImpact = true;
             waterImpactExplosion.lifetimeAfterImpact = 0.1f;
 
             ProjectileController waterController = waterProjectilePrefab.GetComponent<ProjectileController>();
+            waterController.procCoefficient = 800f;
             // waterController.rigidbody.useGravity = false;
 
             if (_assetBundle.LoadAsset<GameObject>("WaterMageWaterGhost") != null)

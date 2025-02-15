@@ -37,7 +37,7 @@ namespace WaterMage.Survivors.WaterMage
             bodyNameToken = WaterMage_PREFIX + "NAME",
             subtitleNameToken = WaterMage_PREFIX + "SUBTITLE",
 
-            characterPortrait = assetBundle.LoadAsset<Texture>("iconSample"),
+            characterPortrait = assetBundle.LoadAsset<Texture>("IconProfile"),
             bodyColor = Color.white,
             sortPosition = 100,
 
@@ -234,15 +234,15 @@ namespace WaterMage.Survivors.WaterMage
                     "WaterMageSplash",
                     WaterMage_PREFIX + "PRIMARY_SPLASH_NAME",
                     WaterMage_PREFIX + "PRIMARY_SPLASH_DESCRIPTION",
-                    assetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                    new EntityStates.SerializableEntityStateType(typeof(SkillStates.SplashCombo)),
+                    assetBundle.LoadAsset<Sprite>("TidalBlades"),
+                    new EntityStates.SerializableEntityStateType(typeof(SplashCombo)),
                     "Weapon",
                     true
                 ));
             primarySkillDef2.stepCount = 2;
             primarySkillDef2.stepGraceDuration = 0.5f;
 
-            Skills.AddPrimarySkills(bodyPrefab, primarySkillDef1);
+            //Skills.AddPrimarySkills(bodyPrefab, primarySkillDef1);
             Skills.AddPrimarySkills(bodyPrefab, primarySkillDef2);
         }
 
@@ -283,14 +283,15 @@ namespace WaterMage.Survivors.WaterMage
 
             });
 
-            Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1);
+            //Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1);
 
             SkillDef secondarySkillDef2 = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "WaterMageOrb",
-                skillNameToken = WaterMage_PREFIX + "SPECIAL_ORB_NAME",
-                skillDescriptionToken = WaterMage_PREFIX + "SPECIAL_ORB_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillName = "WaterMageWater",
+                skillNameToken = WaterMage_PREFIX + "SECONDARY_WATER_NAME",
+                skillDescriptionToken = WaterMage_PREFIX + "SECONDARY_WATER_DESCRIPTION",
+                keywordTokens = new string[] { "KEYWORD_AGILE" },
+                skillIcon = assetBundle.LoadAsset<Sprite>("WaterBarrage"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(ThrowWater)),
                 //setting this to the "weapon2" EntityStateMachine allows us to cast this skill at the same time primary, which is set to the "weapon" EntityStateMachine
@@ -345,9 +346,9 @@ namespace WaterMage.Survivors.WaterMage
             SkillDef utilitySkillDef2 = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "WaterMageRoll",
-                skillNameToken = WaterMage_PREFIX + "UTILITY_ROLL_NAME",
-                skillDescriptionToken = WaterMage_PREFIX + "UTILITY_ROLL_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
+                skillNameToken = WaterMage_PREFIX + "UTILITY_DASH_NAME",
+                skillDescriptionToken = WaterMage_PREFIX + "UTILITY_DASH_DESCRIPTION",
+                skillIcon = assetBundle.LoadAsset<Sprite>("IceDash"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(RollWater)),
                 activationStateMachineName = "Body",
@@ -372,7 +373,7 @@ namespace WaterMage.Survivors.WaterMage
                 forceSprintDuringState = true,
             });
 
-            Skills.AddUtilitySkills(bodyPrefab, utilitySkillDef1);
+            // Skills.AddUtilitySkills(bodyPrefab, utilitySkillDef1);
             Skills.AddUtilitySkills(bodyPrefab, utilitySkillDef2);
         }
 
@@ -404,7 +405,7 @@ namespace WaterMage.Survivors.WaterMage
                 skillName = "WaterMageOrb",
                 skillNameToken = WaterMage_PREFIX + "SPECIAL_ORB_NAME",
                 skillDescriptionToken = WaterMage_PREFIX + "SPECIAL_ORB_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("Ultimate"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(ThrowOrb)),
                 //setting this to the "weapon2" EntityStateMachine allows us to cast this skill at the same time primary, which is set to the "weapon" EntityStateMachine
@@ -418,7 +419,7 @@ namespace WaterMage.Survivors.WaterMage
                 mustKeyPress = false,
             });
 
-            Skills.AddSpecialSkills(bodyPrefab, specialSkillDef1);
+            // Skills.AddSpecialSkills(bodyPrefab, specialSkillDef1);
             Skills.AddSpecialSkills(bodyPrefab, specialSkillDef2);
         }
         #endregion skills
@@ -436,7 +437,7 @@ namespace WaterMage.Survivors.WaterMage
             #region DefaultSkin
             //this creates a SkinDef with all default fields
             SkinDef defaultSkin = Skins.CreateSkinDef("DEFAULT_SKIN",
-                assetBundle.LoadAsset<Sprite>("texMainSkin"),
+                assetBundle.LoadAsset<Sprite>("IconProfile"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject);
 

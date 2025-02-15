@@ -30,6 +30,7 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
             fireTime = firePercentTime * duration;
             characterBody.SetAimTimer(2f);
             muzzleString = "Muzzle";
+            // attackSoundString = "Play_WaterSpecial";
 
             PlayAnimation("LeftArm, Override", "ShootGun", "ShootGun.playbackRate", 1.8f);
         }
@@ -63,7 +64,7 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
 
                 characterBody.AddSpreadBloom(1.5f);
                 EffectManager.SimpleMuzzleFlash(WaterMageAssets.waterMuzzleEffect, gameObject, muzzleString, false);
-                Util.PlaySound("WaterMageShootPistol", gameObject);
+                Util.PlaySound("Play_WaterProjectile", gameObject);
 
                 if (isAuthority)
                 {

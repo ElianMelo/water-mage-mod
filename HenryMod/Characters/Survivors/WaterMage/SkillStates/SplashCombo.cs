@@ -29,7 +29,7 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
             attackRecoil = 0.5f;
             hitHopVelocity = 4f;
 
-            swingSoundString = "WaterMageSwordSwing";
+            swingSoundString = "Play_WaterMelee";
             hitSoundString = "";
             muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             playbackRateParam = "Slash.playbackRate";
@@ -43,7 +43,12 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration, 0.1f * duration);
+            var name = "Right";
+            if (1 + swingIndex == 1)
+            {
+                name = "Left";
+            }
+            PlayAnimation("Gesture, Override", "Slash" + name, playbackRateParam, duration, 0.1f * duration);
         }
 
         protected override void PlaySwingEffect()

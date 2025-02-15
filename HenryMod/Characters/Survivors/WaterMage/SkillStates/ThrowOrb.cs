@@ -20,7 +20,7 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
             //base.effectPrefab = Modules.Assets.SomeMuzzleEffect;
             //targetmuzzle = "muzzleThrow"
 
-            attackSoundString = "WaterMageBombThrow";
+            attackSoundString = "Play_WaterSpecial";
 
             baseDuration = BaseDuration;
             baseDelayBeforeFiringProjectile = BaseDelayDuration;

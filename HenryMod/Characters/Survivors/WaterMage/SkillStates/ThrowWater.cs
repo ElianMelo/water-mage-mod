@@ -14,7 +14,12 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
 
         public static float DamageCoefficient = 4f;
 
+        private Vector3 forwardDirection;
+        private Animator animator;
+
         private Rigidbody projectileRigidbody;
+
+        protected string playbackRateParam = "Slash.playbackRate";
 
         public override void OnEnter()
         {
@@ -22,14 +27,28 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
             //base.effectPrefab = Modules.Assets.SomeMuzzleEffect;
             //targetmuzzle = "muzzleThrow"
 
-            attackSoundString = "WaterMageBombThrow";
+            attackSoundString = "Play_WaterProjectile";
+
+            PlayAnimation(1);
 
             baseDuration = BaseDuration;
             baseDelayBeforeFiringProjectile = BaseDelayDuration;
 
             damageCoefficient = DamageCoefficient;
             //proc coefficient is set on the components of the projectile prefab
-            force = 800f;
+            force = 80f;
+
+            animator = GetModelAnimator();
+            // targetMuzzle = waterMuzzleEffect;
+
+            if (isAuthority && inputBank && characterDirection)
+            {
+                forwardDirection = (inputBank.moveVector == Vector3.zero ? characterDirection.forward : inputBank.moveVector).normalized;
+            }
+
+            EffectManager.SimpleEffect(WaterMageAssets.waterMuzzleEffect,
+                animator.transform.position + new Vector3(0f,2f,0f),
+                Quaternion.LookRotation(characterDirection.forward), false);;
 
             //base.projectilePitchBonus = 0;
             //base.minSpread = 0;
@@ -39,9 +58,11 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
             bloom = 0f;
             projectilePitchBonus = 0f;
 
-            rigidbody.useGravity = false;
-
             base.OnEnter();
+        }
+
+        protected virtual void PlayAttackAnimation()
+        {
         }
 
         public override void FixedUpdate()
@@ -52,10 +73,8 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
 
             if(projectileRigidbody)
             {
-                projectileRigidbody.velocity *= 2;
                 projectileRigidbody.useGravity = false;
-            }
-            rigidbody.useGravity = false;
+            }            
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
@@ -65,10 +84,9 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
 
         public override void PlayAnimation(float duration)
         {
-
             if (GetModelAnimator())
             {
-                PlayAnimation("Gesture, Override", "ThrowBomb", "ThrowBomb.playbackRate", this.duration);
+                PlayAnimation("Gesture, Override", "BasicAttack", "ThrowBomb.playbackRate", this.duration);
             }
         }
     }

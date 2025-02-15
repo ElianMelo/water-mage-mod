@@ -32,7 +32,7 @@ namespace WaterMage.Modules.BaseStates
         protected float hitHopVelocity = 4f;
 
         protected string swingSoundString = "";
-        protected string hitSoundString = "";
+        protected string hitSoundString = "Play_WaterMelee";
         protected string muzzleString = "SwingCenter";
         protected string playbackRateParam = "Slash.playbackRate";
         protected GameObject swingEffectPrefab;
@@ -76,7 +76,12 @@ namespace WaterMage.Modules.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration, 0.05f);
+            var name = "Right";
+            if(1 + swingIndex == 1)
+            {
+                name = "Left";
+            }
+            PlayCrossfade("Gesture, Override", "Slash" + name, playbackRateParam, duration, 0.05f);
         }
 
         public override void OnExit()

@@ -127,5 +127,16 @@ namespace WaterMage.Modules
             
             return networkSoundEventDef;
         }
+
+        internal static NetworkSoundEventDef CreateAndAddNetworkSoundEventDef(uint eventId, string eventName)
+        {
+            NetworkSoundEventDef networkSoundEventDef = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            networkSoundEventDef.akId = eventId;
+            networkSoundEventDef.eventName = eventName;
+
+            AddNetworkSoundEventDef(networkSoundEventDef);
+
+            return networkSoundEventDef;
+        }
     }
 }

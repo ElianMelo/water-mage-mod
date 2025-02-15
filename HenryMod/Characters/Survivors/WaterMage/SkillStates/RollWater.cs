@@ -12,7 +12,7 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
         public static float initialSpeedCoefficient = 5f;
         public static float finalSpeedCoefficient = 2.5f;
 
-        public static string dodgeSoundString = "WaterMageRoll";
+        public static string dodgeSoundString = "Play_WaterDash";
         public static float dodgeFOV = global::EntityStates.Commando.DodgeState.dodgeFOV;
 
         private float rollSpeed;
@@ -23,6 +23,8 @@ namespace WaterMage.Survivors.WaterMage.SkillStates
         public override void OnEnter()
         {
             base.OnEnter();
+
+            AkSoundEngine.PostEvent(3876958733, this.gameObject);
 
             animator = GetModelAnimator();
 

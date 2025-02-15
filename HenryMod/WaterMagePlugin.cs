@@ -5,6 +5,7 @@ using RoR2;
 using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
+using System.IO;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -31,7 +32,14 @@ namespace WaterMage
 
         void Awake()
         {
-            instance = this;
+            //using (var bankStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Riven.RivenSoundBank.bnk"))
+            //{
+            //    var bytes = new byte[bankStream.length];
+            //    bankStream.Read(bytes, 0, bytes.length);
+            //    SoundAPI.SoundBanks.Add(bytes);
+            //}
+
+                instance = this;
 
             //easy to use logger
             Log.Init(Logger);
