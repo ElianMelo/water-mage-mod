@@ -33,7 +33,7 @@ namespace WaterMage.Modules
             AssetBundle assetBundle = null;
             try
             {
-                assetBundle = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(WaterMagePlugin.instance.Info.Location), "AssetBundles", bundleName));
+                assetBundle = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(WaterMagePlugin.instance.Info.Location), bundleName));
             }
             catch (System.Exception e)
             {
